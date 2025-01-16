@@ -1,24 +1,23 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
+import Products from './components/Products';
+import Cart from './components/Cart';
 
 export default function App() {
 
-  const stack = createNativeStackNavigator
+  const Stack = createStackNavigator()
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      
-    </View>
+    
+   <NavigationContainer >
+    <Stack.Navigator initialRouteName='Products'>
+    <Stack.Screen name='Products' component={Products}></Stack.Screen>
+    <Stack.Screen name='Cart' component={Cart}></Stack.Screen>
+    </Stack.Navigator>
+   </NavigationContainer>
+   
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
